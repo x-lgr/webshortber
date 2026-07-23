@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Support</title>
+<title>WhatsApp Contact</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -12,189 +12,267 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+    font-family:Poppins,sans-serif;
+}
+
+html,body{
+    height:100%;
 }
 
 body{
-    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     padding:20px;
-    background:#000;
-    position:relative;
     overflow:hidden;
+    position:relative;
+    background:#000;
 }
 
-/* Background Image (No Blur) */
+/* ===== Full Quality Background ===== */
+
 body::before{
     content:"";
     position:fixed;
     inset:0;
-    background:url("https://raw.githubusercontent.com/x-lgr/pom2/main/ChatGPT%20Image%20Jun%206%2C%202026%2C%2011_25_05%20AM.png") center center/cover no-repeat;
-    transform:scale(1);
+    background-image:url("https://raw.githubusercontent.com/x-lgr/pom2/main/ChatGPT%20Image%20Jun%206%2C%202026%2C%2011_25_05%20AM.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    z-index:-2;
 }
 
-/* Dark Overlay */
+/* Very Light Overlay */
+
 body::after{
     content:"";
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.55);
+    background:rgba(0,0,0,.25);
+    z-index:-1;
 }
 
+/* ===== Glass Card ===== */
+
 .card{
-    position:relative;
-    z-index:2;
     width:100%;
-    max-width:420px;
+    max-width:430px;
+
     background:rgba(255,255,255,.08);
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-    border:1px solid rgba(255,255,255,.15);
+
+    /* Blur Reduced */
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+
+    border:1px solid rgba(255,255,255,.18);
+
     border-radius:28px;
-    padding:28px;
+
+    padding:30px;
+
+    box-shadow:
+    0 15px 50px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.15);
+
     color:#fff;
     text-align:center;
-    box-shadow:0 15px 45px rgba(0,0,0,.45);
 }
 
 .logo{
-    width:82px;
-    height:82px;
+    width:85px;
+    height:85px;
     margin:auto;
     border-radius:50%;
-    background:rgba(255,255,255,.08);
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:38px;
-    border:1px solid rgba(255,255,255,.15);
+    font-size:42px;
     margin-bottom:18px;
+
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.18);
 }
 
 h1{
-    font-size:27px;
+    font-size:28px;
     margin-bottom:10px;
 }
 
 .desc{
-    color:#ddd;
-    line-height:1.8;
     font-size:14px;
-    margin-bottom:25px;
+    color:#ededed;
+    line-height:1.8;
+    margin-bottom:24px;
 }
 
 .box{
+
     background:rgba(255,255,255,.06);
+
     border:1px solid rgba(255,255,255,.12);
+
     border-radius:18px;
-    padding:18px;
+
+    padding:20px;
 }
 
 .label{
-    color:#bbb;
+    color:#cfcfcf;
     font-size:13px;
-    margin-bottom:10px;
 }
 
 .number{
-    font-size:28px;
+
+    font-size:30px;
+
     font-weight:700;
+
+    margin:12px 0;
+
     letter-spacing:1px;
 }
 
-.copy-btn{
+button{
+
     width:100%;
-    margin-top:15px;
-    padding:14px;
+
+    padding:15px;
+
     border:none;
+
     border-radius:14px;
+
     background:#25D366;
+
     color:#fff;
-    font-size:15px;
+
+    font-size:16px;
+
     font-weight:600;
+
     cursor:pointer;
+
     transition:.25s;
 }
 
-.copy-btn:hover{
+button:hover{
+
     transform:translateY(-2px);
+
 }
 
 .instructions{
+
     margin-top:22px;
+
     text-align:left;
+
     background:rgba(255,255,255,.05);
+
     border-radius:18px;
+
     padding:18px;
-    border:1px solid rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.10);
 }
 
 .instructions h3{
+
     margin-bottom:12px;
+
 }
 
 .instructions ol{
+
     padding-left:18px;
-    color:#ddd;
+
+    color:#f0f0f0;
+
     line-height:1.9;
+
     font-size:14px;
+
 }
 
 .telegram{
+
     display:block;
+
     margin-top:22px;
-    padding:15px;
+
     text-decoration:none;
-    color:#fff;
+
+    padding:15px;
+
     background:#229ED9;
+
+    color:#fff;
+
     border-radius:14px;
+
     font-weight:600;
+
     transition:.25s;
 }
 
 .telegram:hover{
+
     transform:translateY(-2px);
+
 }
 
 .footer{
+
     margin-top:20px;
-    color:#bdbdbd;
-    font-size:12px;
+
+    color:#ddd;
+
+    font-size:13px;
 }
 
 .toast{
+
     position:fixed;
+
     left:50%;
-    bottom:30px;
+
+    bottom:25px;
+
     transform:translateX(-50%);
+
     background:#25D366;
+
     color:#fff;
+
     padding:12px 22px;
+
     border-radius:30px;
-    font-weight:600;
+
     opacity:0;
+
     transition:.35s;
-    z-index:100;
+
+    font-weight:600;
 }
 
 .toast.show{
+
     opacity:1;
+
 }
 
-@media(max-width:430px){
+@media(max-width:420px){
 
 .card{
-    padding:22px;
+
+padding:22px;
+
 }
 
 .number{
-    font-size:24px;
-}
 
-h1{
-    font-size:23px;
+font-size:24px;
+
 }
 
 }
@@ -207,7 +285,7 @@ h1{
 
 <div class="logo">💬</div>
 
-<h1>WhatsApp Contact</h1>
+<h1>Contact on WhatsApp</h1>
 
 <p class="desc">
 If WhatsApp doesn't open directly from the advertisement, simply copy the number below and send your message manually.
@@ -215,28 +293,26 @@ If WhatsApp doesn't open directly from the advertisement, simply copy the number
 
 <div class="box">
 
-<div class="label">
-WhatsApp Number
-</div>
+<div class="label">WhatsApp Number</div>
 
 <div class="number" id="number">
 8441043507
 </div>
 
-<button class="copy-btn" onclick="copyNumber()">
-📋 Copy Whatsapp Number
+<button onclick="copyNumber()">
+📋 Copy Number
 </button>
 
 </div>
 
 <div class="instructions">
 
-<h3>How to Contact</h3>
+<h3>Instructions</h3>
 
 <ol>
-<li>Tap the <b>Copy Number</b> button.</li>
+<li>Tap <b>Copy Number</b>.</li>
 <li>Open WhatsApp manually.</li>
-<li>Create a new chat.</li>
+<li>Start a new chat.</li>
 <li>Paste the copied number.</li>
 <li>Send your message.</li>
 </ol>
@@ -244,39 +320,33 @@ WhatsApp Number
 </div>
 
 <a class="telegram" href="https://t.me/kingxlgr" target="_blank">
-📨 Click for telegram DM!
+📨 Join Telegram
 </a>
 
 <div class="footer">
-Thank you for contacting us ❤️
+We'll reply as soon as possible ❤️
 </div>
 
 </div>
 
 <div class="toast" id="toast">
-Number Copied Successfully ✔
+Number Copied ✔
 </div>
 
 <script>
-
 function copyNumber(){
 
-const number=document.getElementById("number").innerText;
-
-navigator.clipboard.writeText(number);
+navigator.clipboard.writeText("8441043507");
 
 const toast=document.getElementById("toast");
 
 toast.classList.add("show");
 
-setTimeout(function(){
-
+setTimeout(()=>{
 toast.classList.remove("show");
-
 },2000);
 
 }
-
 </script>
 
 </body>
