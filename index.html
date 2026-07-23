@@ -16,126 +16,190 @@
 }
 
 html,body{
+    width:100%;
     height:100%;
+    overflow:hidden;
 }
 
 body{
     display:flex;
     justify-content:center;
     align-items:center;
-    min-height:100vh;
-    padding:20px;
-    overflow-y:auto;
-    overflow-x:hidden;
-    position:relative;
     background:#000;
+    position:relative;
+    padding:15px;
 }
 
-/* ===== Full Quality Background ===== */
+/* Background */
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
-    background-image:url("https://raw.githubusercontent.com/x-lgr/pom2/main/ChatGPT%20Image%20Jun%206%2C%202026%2C%2011_25_05%20AM.png");
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
+    background:url("https://raw.githubusercontent.com/x-lgr/pom2/main/ChatGPT%20Image%20Jun%206%2C%202026%2C%2011_25_05%20AM.png") center center/cover no-repeat;
     z-index:-2;
 }
-
-/* Very Light Overlay */
 
 body::after{
     content:"";
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.25);
+    background:rgba(0,0,0,.22);
     z-index:-1;
 }
 
-/* ===== Glass Card ===== */
+/* Glass Card */
 
 .card{
+
     width:100%;
     max-width:430px;
-    max-height:90vh;
+    max-height:95vh;
 
     overflow-y:auto;
     overflow-x:hidden;
 
-    padding:30px;
+    padding:26px;
+
     border-radius:28px;
 
     background:rgba(255,255,255,.08);
-    backdrop-filter:blur(8px);
-    -webkit-backdrop-filter:blur(8px);
+
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    box-shadow:
+    0 15px 45px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.12);
+
+    color:#fff;
 }
+
+/* Hide Scrollbar */
+
 .card::-webkit-scrollbar{
-    width:6px;
+    width:0;
 }
 
-.card::-webkit-scrollbar-thumb{
-    background:rgba(255,255,255,.35);
-    border-radius:20px;
+.card{
+    scrollbar-width:none;
 }
 
-.card::-webkit-scrollbar-track{
-    background:transparent;
-}
-    
+/* Logo */
+
 .logo{
-    width:85px;
-    height:85px;
+
+    width:80px;
+    height:80px;
+
     margin:auto;
+
     border-radius:50%;
+
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:42px;
-    margin-bottom:18px;
+
+    font-size:38px;
 
     background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.18);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    margin-bottom:18px;
+
 }
 
 h1{
-    font-size:28px;
+
+    text-align:center;
+
+    font-size:27px;
+
     margin-bottom:10px;
+
 }
 
 .desc{
+
+    text-align:center;
+
+    color:#ececec;
+
+    line-height:1.7;
+
     font-size:14px;
-    color:#ededed;
-    line-height:1.8;
-    margin-bottom:24px;
+
+    margin-bottom:20px;
+
 }
 
 .box{
 
-    background:rgba(255,255,255,.06);
+    background:rgba(255,255,255,.05);
 
-    border:1px solid rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.10);
 
     border-radius:18px;
 
-    padding:20px;
+    padding:18px;
+
 }
 
 .label{
-    color:#cfcfcf;
+
+    text-align:center;
+
+    color:#ccc;
+
     font-size:13px;
+
 }
 
 .number{
+
+    text-align:center;
 
     font-size:30px;
 
     font-weight:700;
 
-    margin:12px 0;
+    margin:12px 0 18px;
 
-    letter-spacing:1px;
+}
+
+.open-btn{
+
+    display:block;
+
+    width:100%;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    padding:15px;
+
+    border-radius:14px;
+
+    background:linear-gradient(135deg,#7c3aed,#2563eb);
+
+    color:#fff;
+
+    font-weight:600;
+
+    margin-bottom:12px;
+
+    transition:.25s;
+
+}
+
+.open-btn:hover{
+
+    transform:translateY(-2px);
+
 }
 
 button{
@@ -152,13 +216,14 @@ button{
 
     color:#fff;
 
-    font-size:16px;
+    font-size:15px;
 
     font-weight:600;
 
     cursor:pointer;
 
     transition:.25s;
+
 }
 
 button:hover{
@@ -167,58 +232,74 @@ button:hover{
 
 }
 
+/* Instructions */
+
 .instructions{
 
-    margin-top:22px;
-
-    text-align:left;
+    margin-top:18px;
 
     background:rgba(255,255,255,.05);
 
+    border:1px solid rgba(255,255,255,.08);
+
     border-radius:18px;
 
-    padding:18px;
+    padding:16px;
 
-    border:1px solid rgba(255,255,255,.10);
 }
 
 .instructions h3{
 
-    margin-bottom:12px;
+    margin-bottom:10px;
+
+    font-size:17px;
 
 }
 
-.instructions ol{
+.instructions ul{
 
-    padding-left:18px;
+    list-style:none;
 
-    color:#f0f0f0;
+    color:#ededed;
 
-    line-height:1.9;
+    line-height:1.8;
 
     font-size:14px;
 
 }
 
+.instructions li::before{
+
+    content:"✔ ";
+
+    color:#25D366;
+
+}
+
+/* Telegram */
+
 .telegram{
 
     display:block;
 
-    margin-top:22px;
-
     text-decoration:none;
 
+    text-align:center;
+
+    margin-top:18px;
+
     padding:15px;
+
+    border-radius:14px;
 
     background:#229ED9;
 
     color:#fff;
 
-    border-radius:14px;
-
     font-weight:600;
 
     transition:.25s;
+
 }
 
 .telegram:hover{
@@ -229,11 +310,14 @@ button:hover{
 
 .footer{
 
-    margin-top:20px;
+    text-align:center;
+
+    margin-top:18px;
 
     color:#ddd;
 
     font-size:13px;
+
 }
 
 .toast{
@@ -242,7 +326,7 @@ button:hover{
 
     left:50%;
 
-    bottom:25px;
+    bottom:20px;
 
     transform:translateX(-50%);
 
@@ -250,38 +334,20 @@ button:hover{
 
     color:#fff;
 
-    padding:12px 22px;
+    padding:12px 20px;
 
     border-radius:30px;
+
+    font-weight:600;
 
     opacity:0;
 
     transition:.35s;
 
-    font-weight:600;
+    z-index:100;
+
 }
 
-.open-btn{
-    display:block;
-    width:100%;
-    padding:15px;
-    margin:15px 0;
-    text-decoration:none;
-    text-align:center;
-    border-radius:14px;
-    background:linear-gradient(135deg,#7c3aed,#2563eb);
-    color:#fff;
-    font-size:16px;
-    font-weight:600;
-    transition:.25s;
-    box-shadow:0 8px 25px rgba(0,0,0,.25);
-}
-
-.open-btn:hover{
-    transform:translateY(-2px);
-    filter:brightness(1.08);
-}
-    
 .toast.show{
 
     opacity:1;
@@ -294,9 +360,17 @@ button:hover{
 
 padding:22px;
 
+max-height:96vh;
+
 }
 
 .number{
+
+font-size:25px;
+
+}
+
+h1{
 
 font-size:24px;
 
@@ -306,6 +380,7 @@ font-size:24px;
 </style>
 
 </head>
+
 <body>
 
 <div class="card">
@@ -315,43 +390,43 @@ font-size:24px;
 <h1>Contact on WhatsApp</h1>
 
 <p class="desc">
-If WhatsApp doesn't open directly from the advertisement, simply copy the number below and send your message manually.
+If WhatsApp doesn't open from the ad, use the options below.
 </p>
 
 <div class="box">
 
-<div class="label">WhatsApp Number</div>
+<div class="label">
+WhatsApp Number
+</div>
 
 <div class="number" id="number">
 8441043507
 </div>
-    
+
 <a href="https://pompom.xo.je" target="_blank" class="open-btn">
-    Demo Videos
+🎬 Demo Videos
 </a>
-    
+
 <button onclick="copyNumber()">
-📋 Copy Whatsapp Number
+📋 Copy WhatsApp Number
 </button>
 
 </div>
 
 <div class="instructions">
 
-<h3>Instructions</h3>
+<h3>Quick Steps</h3>
 
-<ol>
-<li>Tap <b>Copy Number</b>.</li>
-<li>Open WhatsApp manually.</li>
-<li>Start a new chat.</li>
-<li>Paste the copied number.</li>
-<li>Send your message.</li>
-</ol>
+<ul>
+<li>Copy the number.</li>
+<li>Open WhatsApp.</li>
+<li>Paste &amp; send your message.</li>
+</ul>
 
 </div>
 
 <a class="telegram" href="https://t.me/kingxlgr" target="_blank">
-📨 Open Telegram Chat!
+📨 Open Telegram Chat
 </a>
 
 <div class="footer">
@@ -365,6 +440,7 @@ Number Copied ✔
 </div>
 
 <script>
+
 function copyNumber(){
 
 navigator.clipboard.writeText("8441043507");
@@ -378,6 +454,7 @@ toast.classList.remove("show");
 },2000);
 
 }
+
 </script>
 
 </body>
