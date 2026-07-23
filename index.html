@@ -1,166 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Open WhatsApp</title>
-    <style>
-        /* Reset & full‑page background */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Support</title>
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-            /* Background image from your GitHub link */
-            background-image: url('https://raw.githubusercontent.com/x-lgr/pom2/main/ChatGPT%20Image%20Jun%206%2C%202026%2C%2011_25_05%20AM.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
 
-            /* Fallback color in case the image doesn't load */
-            background-color: #128C7E;
-        }
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    overflow:hidden;
+    background:#000;
+    position:relative;
+}
 
-        /* Semi‑transparent overlay to make the button pop */
-        .overlay {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 40px 30px;
-            border-radius: 20px;
-            text-align: center;
-            max-width: 420px;
-            width: 90%;
-            backdrop-filter: blur(4px);
-        }
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:url("https://raw.githubusercontent.com/x-lgr/pom2/main/ChatGPT%20Image%20Jun%206%2C%202026%2C%2011_25_05%20AM.png") center center/cover no-repeat;
+    filter:blur(6px) brightness(.35);
+    transform:scale(1.1);
+}
 
-        .whatsapp-button {
-            display: inline-block;
-            background-color: #25D366;
-            color: white;
-            font-size: 20px;
-            font-weight: 600;
-            padding: 16px 32px;
-            border-radius: 50px;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            box-sizing: border-box;
-            text-align: center;
-            transition: background-color 0.2s ease, transform 0.1s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
+.overlay{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.75));
+}
 
-        .whatsapp-button:hover {
-            background-color: #1ebe5c;
-        }
+.card{
+    position:relative;
+    z-index:5;
+    width:100%;
+    max-width:420px;
+    padding:28px;
+    border-radius:28px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 15px 45px rgba(0,0,0,.45);
+    color:#fff;
+    text-align:center;
+}
 
-        .whatsapp-button:active {
-            transform: scale(0.96);
-        }
+.logo{
+    width:80px;
+    height:80px;
+    margin:auto;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:38px;
+    margin-bottom:18px;
+    border:1px solid rgba(255,255,255,.15);
+}
 
-        .info h1 {
-            font-size: 28px;
-            color: #fff;
-            margin-bottom: 8px;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-        }
+h1{
+    font-size:26px;
+    margin-bottom:10px;
+}
 
-        .info p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 16px;
-            margin-bottom: 24px;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
-        }
+.desc{
+    color:#dcdcdc;
+    line-height:1.7;
+    font-size:14px;
+    margin-bottom:25px;
+}
 
-        .status {
-            margin-top: 16px;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.85);
-            min-height: 22px;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
-        }
-    </style>
+.box{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;
+    padding:18px;
+    margin-bottom:18px;
+}
+
+.label{
+    color:#bfbfbf;
+    font-size:13px;
+    margin-bottom:10px;
+}
+
+.number{
+    font-size:26px;
+    font-weight:700;
+    letter-spacing:1px;
+    word-break:break-word;
+}
+
+button{
+    margin-top:15px;
+    width:100%;
+    border:none;
+    border-radius:14px;
+    padding:14px;
+    font-size:15px;
+    cursor:pointer;
+    background:#25D366;
+    color:#fff;
+    font-weight:600;
+    transition:.25s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+}
+
+.instructions{
+    text-align:left;
+    margin-top:25px;
+    background:rgba(255,255,255,.05);
+    border-radius:18px;
+    padding:18px;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.instructions h3{
+    margin-bottom:12px;
+    font-size:17px;
+}
+
+.instructions ol{
+    padding-left:18px;
+    color:#ddd;
+    line-height:1.8;
+    font-size:14px;
+}
+
+.telegram{
+    display:block;
+    margin-top:22px;
+    text-decoration:none;
+    background:#229ED9;
+    color:#fff;
+    padding:15px;
+    border-radius:14px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.telegram:hover{
+    transform:translateY(-2px);
+}
+
+.footer{
+    margin-top:20px;
+    color:#aaa;
+    font-size:12px;
+}
+
+.toast{
+    position:fixed;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#25D366;
+    color:#fff;
+    padding:12px 22px;
+    border-radius:30px;
+    font-weight:600;
+    opacity:0;
+    pointer-events:none;
+    transition:.35s;
+    z-index:999;
+}
+
+.toast.show{
+    opacity:1;
+}
+
+@media(max-width:420px){
+    .card{
+        padding:22px;
+    }
+
+    .number{
+        font-size:22px;
+    }
+
+    h1{
+        font-size:22px;
+    }
+}
+</style>
 </head>
 <body>
 
-    <div class="overlay">
-        <div class="info">
-            <h1>📲 WhatsApp</h1>
-            <p>Tap the button to continue the chat</p>
-        </div>
+<div class="overlay"></div>
 
-        <!-- Button: tries the app, NO fallback to web -->
-        <button id="action-button" class="whatsapp-button">
-            Open app
-        </button>
+<div class="card">
 
-        <div id="status" class="status"></div>
-    </div>
+<div class="logo">💬</div>
 
-    <script>
-        (function() {
-            // ----- ONLY THE APP DEEP LINK (no web fallback) -----
-            const APP_URL =
-                'whatsapp://send/?phone=918441043507&text=Hey+XLGR%21+%EF%BF%BD%0A%0AI%27m+interested+in+buying+your+product.+Could+you+please+share+the+details%2C+pricing%2C+and+payment+method%3F&type=phone_number&app_absent=0';
+<h1>Contact on WhatsApp</h1>
 
-            const statusEl = document.getElementById('status');
-            const button = document.getElementById('action-button');
+<p class="desc">
+If WhatsApp doesn't open automatically from the advertisement, simply copy the number below and send your message manually.
+</p>
 
-            let timeoutId = null;
+<div class="box">
+<div class="label">WhatsApp Number</div>
 
-            function clearTimer() {
-                if (timeoutId) {
-                    clearTimeout(timeoutId);
-                    timeoutId = null;
-                }
-            }
+<div class="number" id="num">8441043507</div>
 
-            function handleButtonClick(e) {
-                e.preventDefault();
+<button onclick="copyNumber()">📋 Copy Number</button>
+</div>
 
-                clearTimer();
+<div class="instructions">
 
-                statusEl.textContent = 'Opening WhatsApp...';
+<h3>Instructions</h3>
 
-                // 1. Try the native app
-                window.location.href = APP_URL;
+<ol>
+<li>Tap <b>Copy Number</b>.</li>
+<li>Open WhatsApp manually.</li>
+<li>Start a new chat.</li>
+<li>Paste the copied number.</li>
+<li>Send your message.</li>
+</ol>
 
-                // 2. Set a short timer just to show a message if the app doesn't open
-                //    (but we DO NOT redirect to web)
-                timeoutId = setTimeout(function() {
-                    statusEl.textContent = '💡 Make sure WhatsApp is installed.';
-                }, 3000);
-            }
+</div>
 
-            // If the app opens, the page loses visibility → clear the timer
-            function handleVisibilityChange() {
-                if (document.hidden) {
-                    clearTimer();
-                    statusEl.textContent = '✅ Opening WhatsApp...';
-                }
-            }
+<a class="telegram" href="https://t.me/kingxlgr" target="_blank">
+📨 Join Telegram
+</a>
 
-            function handleBlur() {
-                clearTimer();
-                statusEl.textContent = '✅ Opening WhatsApp...';
-            }
+<div class="footer">
+We'll reply as soon as possible.
+</div>
 
-            button.addEventListener('click', handleButtonClick);
-            document.addEventListener('visibilitychange', handleVisibilityChange);
-            window.addEventListener('blur', handleBlur);
+</div>
 
-            window.addEventListener('beforeunload', function() {
-                clearTimer();
-            });
-        })();
-    </script>
+<div class="toast" id="toast">
+Number Copied Successfully ✔
+</div>
+
+<script>
+function copyNumber(){
+
+const number=document.getElementById("num").innerText;
+
+navigator.clipboard.writeText(number).then(()=>{
+const toast=document.getElementById("toast");
+toast.classList.add("show");
+setTimeout(()=>{
+toast.classList.remove("show");
+},2200);
+});
+
+}
+</script>
 
 </body>
 </html>
