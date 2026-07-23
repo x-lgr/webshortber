@@ -235,6 +235,27 @@ button:hover{
     font-weight:600;
 }
 
+.open-btn{
+    display:block;
+    width:100%;
+    padding:15px;
+    margin:15px 0;
+    text-decoration:none;
+    text-align:center;
+    border-radius:14px;
+    background:linear-gradient(135deg,#7c3aed,#2563eb);
+    color:#fff;
+    font-size:16px;
+    font-weight:600;
+    transition:.25s;
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+}
+
+.open-btn:hover{
+    transform:translateY(-2px);
+    filter:brightness(1.08);
+}
+    
 .toast.show{
 
     opacity:1;
@@ -278,7 +299,11 @@ If WhatsApp doesn't open directly from the advertisement, simply copy the number
 <div class="number" id="number">
 8441043507
 </div>
-
+    
+<a href="https://pompom.xo.je" target="_blank" class="open-btn">
+    Demo Videos
+</a>
+    
 <button onclick="copyNumber()">
 📋 Copy Whatsapp Number
 </button>
