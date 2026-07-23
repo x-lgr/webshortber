@@ -23,8 +23,10 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
+    min-height:100vh;
     padding:20px;
-    overflow:hidden;
+    overflow-y:auto;
+    overflow-x:hidden;
     position:relative;
     background:#000;
 }
@@ -55,9 +57,33 @@ body::after{
 /* ===== Glass Card ===== */
 
 .card{
-    background:rgba(18,18,18,.45);
-    backdrop-filter:blur(3px);
+    width:100%;
+    max-width:430px;
+    max-height:90vh;
+
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    padding:30px;
+    border-radius:28px;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
 }
+.card::-webkit-scrollbar{
+    width:6px;
+}
+
+.card::-webkit-scrollbar-thumb{
+    background:rgba(255,255,255,.35);
+    border-radius:20px;
+}
+
+.card::-webkit-scrollbar-track{
+    background:transparent;
+}
+    
 .logo{
     width:85px;
     height:85px;
